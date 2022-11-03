@@ -1,0 +1,13 @@
+{
+  "json": {
+    "enabled": false,
+    "output": "jsonreport/test.json"
+  },
+  "nonGlobalStepDefinitions": true,
+  "outputFolder": "cypress/cucumber-json",
+  "stepDefinitions": [
+    "[filepath]/**/*/{js,ts}",
+    "[filepath].{js,ts}",
+    "cypress/e2e/step_definitions/*.{js,ts}"
+  ]
+}
