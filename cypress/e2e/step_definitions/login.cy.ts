@@ -1,10 +1,11 @@
 import { Given, Then, When } from '@badeball/cypress-cucumber-preprocessor'
+import homePage from '../../page-objects/pages/home.page'
 
 Given(/^I am on Home Page$/, () => {
-	cy.visit('http://localhost:3000/')
+	homePage.open()
 })
 When(/^I Navigate to Login Page$/, () => {
-
+	homePage.navigateToLogin()
 })
 When(/^I enter "([^"]*)" and "([^"]*)"$/, (username, password) => {
 

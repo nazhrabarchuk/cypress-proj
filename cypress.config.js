@@ -15,6 +15,7 @@ module.exports = defineConfig({
 
 			return config
 		},
+		'baseUrl': 'http://localhost:3000/',
 		specPattern: 'cypress/e2e/features/*.feature',
 		'video': false,
 		'defaultCommandTimeout': 5000,
