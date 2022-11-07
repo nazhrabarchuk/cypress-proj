@@ -24,6 +24,9 @@ class HeaderComponent extends BaseComponent {
 		cy.clickElement((this.locators.LOGIN_BUTTON))
 	}
 
+	shouldExistBasketButton(): void {
+		cy.isVisible(this.locators.BASKET_BUTTON)
+	}
 }
 
 

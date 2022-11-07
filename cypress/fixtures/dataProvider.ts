@@ -1,4 +1,4 @@
-import dataHelper from './data.helper'
+import dataHelper from './helpers/data.helper'
 let randomEmail = require('random-email');
 
 

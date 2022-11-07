@@ -35,6 +35,10 @@ abstract class BasePage<T> {
 	setElementValue(locator: string, value: any) {
 		cy.get(locator).type(value)
 	}
+
+	clickElement(locator: string): void {
+		cy.clickElement(locator)
+	}
 }
 
 export { BasePage }

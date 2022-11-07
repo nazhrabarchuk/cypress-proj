@@ -10,7 +10,6 @@ Feature: Registration on the Application
     And I click submit button
     Then I should see successful registration message on Login page
 
-  @focus
   Scenario Outline: Invalid Registration:
     When I enter "<email>", "<password>", "<password2>", "<securityQuestion>", "<securityAnswer>"
     Then I should see the "<msg>" on screen
