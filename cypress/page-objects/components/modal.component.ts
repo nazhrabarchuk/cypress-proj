@@ -14,8 +14,12 @@ class ModalComponent extends BaseComponent {
 	}
 
 	closeModalWindows(): void {
-		cy.isVisible(this.locators.MODAL_DIALOG_BUTTON) ? cy.clickElement(this.locators.MODAL_DIALOG_BUTTON) : null
-		cy.isVisible(this.locators.MODAL_COOKIE_BUTTON_LOCATOR) ? cy.clickElement(this.locators.MODAL_COOKIE_BUTTON_LOCATOR) : null
+		if (cy.isVisible(this.locators.MODAL_DIALOG_BUTTON)) {
+			cy.clickElement(this.locators.MODAL_DIALOG_BUTTON)
+		}
+		if (cy.isVisible(this.locators.MODAL_COOKIE_BUTTON_LOCATOR)) {
+			cy.clickElement(this.locators.MODAL_COOKIE_BUTTON_LOCATOR)
+		}
 	}
 
 	notificationText(message: string) {
