@@ -1,5 +1,6 @@
 import { HeaderComponent } from '../components/header.component'
 import { ModalComponent } from '../components/modal.component'
+import { ProductsComponent } from '../components/products.component'
 
 abstract class BasePage<T> {
 	private readonly pageUrl: string
@@ -30,6 +31,10 @@ abstract class BasePage<T> {
 
 	get modal() {
 		return new ModalComponent()
+	}
+
+	get products() {
+		return new ProductsComponent()
 	}
 
 	setElementValue(locator: string, value: any) {

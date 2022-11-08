@@ -10,9 +10,9 @@ Feature: Login Action
     When I Navigate to Login Page
 
   Scenario: Invalid Login
-    When I fill login form with "wrong_email" and "wrong_password"
+    And I fill login form with "wrong_email" and "wrong_password"
     And I click on sign in login
-    Then I should see error message
+    Then I should see error login message
 
   @pre-step-registration
   Scenario: Successful Login with Valid Credentials

@@ -2,11 +2,11 @@
   "compilerOptions": {
     "target": "es2016",
     "lib": ["es6", "dom"],
-    "types": ["cypress", "node"],
+    "types": ["cypress", "node", "cypress-plugin-api"],
     "module": "CommonJS",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts"],
 }

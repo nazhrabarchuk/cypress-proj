@@ -2,16 +2,7 @@ import { Before, Given, Then, When } from '@badeball/cypress-cucumber-preprocess
 import homePage from '../../page-objects/pages/home.page'
 import loginPage from '../../page-objects/pages/login.page'
 import { LOGIN_DATA } from '../../fixtures/dataProvider'
-import client from '../../fixtures/helpers/client'
 
-
-Before({ tags: '@pre-step-registration' }, () => {
-	client.register()
-})
-
-Given(/^I am on Home Page$/, () => {
-	homePage.open()
-})
 When(/^I Navigate to Login Page$/, () => {
 	homePage.navigateToLogin()
 })
@@ -31,6 +22,6 @@ Then(/^I should see basket button on the homepage$/, () => {
 	homePage.header.shouldExistBasketButton()
 })
 
-Then(/^I should see error message$/, function() {
+Then(/^I should see error login message$/, function() {
 	loginPage.errorLoginMsg()
 })

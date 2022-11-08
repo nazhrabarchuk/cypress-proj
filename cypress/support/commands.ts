@@ -1,3 +1,5 @@
+import client from '../fixtures/helpers/client'
+
 Cypress.Commands.add('isVisible', (selector: string) => {
 	cy.get(selector).should('be.visible')
 })
@@ -22,4 +24,13 @@ Cypress.Commands.add('selectOptionByText', (locator: string, text) => {
 
 Cypress.Commands.add('clickElement', (locator: string) => {
 	cy.get(locator).click()
+})
+
+Cypress.Commands.add('registerAPI', () => {
+	client.register()
+})
+
+Cypress.Commands.add('loginAPI', () => {
+	cy.registerAPI()
+	client.logIn()
 })
