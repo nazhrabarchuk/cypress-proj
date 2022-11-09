@@ -1,4 +1,5 @@
 import { BasePage } from './base.page'
+import { BasketAddressComponents } from '../components/basket/basket.address.components'
 
 const LOCATORS = {
 	BASKET_ITEMS: 'mat-row.mat-row',
@@ -14,6 +15,10 @@ class BasketPage extends BasePage<BasketPage> {
 
 	get locators() {
 		return LOCATORS
+	}
+
+	get address() {
+		return new BasketAddressComponents()
 	}
 
 	basketNotEmpty(): void {

@@ -1,4 +1,5 @@
 import { REGISTRATION_DATA } from '../dataProvider'
+import { resolve } from '@badeball/cypress-cucumber-preprocessor/lib/preprocessor-configuration'
 
 let question: string = ''
 
@@ -16,9 +17,9 @@ const REGISTER_USER_POST_BODY_DATA = {
 }
 
 class Client {
-	static TOKEN: string
-	static BID: string
-	static ID: any
+	static TOKEN: any
+	static BID: string | null
+	static ID: any | null
 
 	/**
 	 * GET security question by request
@@ -31,8 +32,8 @@ class Client {
 		)
 	}
 
-	logIn(): any {
-		 cy.request({
+	logIn(arg = 'sessionStorage'): any {
+		cy.request({
 			method: 'POST',
 			url: `${Cypress.config().baseUrl}rest/user/login/`,
 			body: LOGIN_USER_POST_BODY_DATA,
@@ -41,6 +42,7 @@ class Client {
 			window.sessionStorage.setItem('bid', resp.body.authentication.bid)
 			cy.setCookie('token', resp.body.authentication.token)
 		})
+
 	}
 
 

@@ -12,10 +12,6 @@ declare namespace Cypress {
 
 		'shouldContainMessage'(locator: string, msg: string): Chainable<Element>,
 
-		'checkToken'(token: string): Chainable<void>,
-
-		'loginAPI'(): Chainable<void>,
-
-		'registerAPI'(): Chainable<void>
+		'checkToken'(token: string): Chainable<void>
 	}
 }

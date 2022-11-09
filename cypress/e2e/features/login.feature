@@ -14,7 +14,7 @@ Feature: Login Action
     And I click on sign in login
     Then I should see error login message
 
-  @pre-step-registration
+  @api-registration
   Scenario: Successful Login with Valid Credentials
     And I fill login form with valid credentials
     And I click on sign in login
