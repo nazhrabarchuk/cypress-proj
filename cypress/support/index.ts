@@ -8,10 +8,14 @@ declare namespace Cypress {
 
 		'clickElement'(selector: string): Chainable<HTMLElement>,
 
+		'clickElementByText'(text: string): Chainable<HTMLElement>,
+
 		'selectOptionByText'(locator: string, text: string): Chainable<Element>,
 
 		'shouldContainMessage'(locator: string, msg: string): Chainable<Element>,
 
-		'checkToken'(token: string): Chainable<void>
+		'checkToken'(token: string): Chainable<void>,
+
+		'setElementValue'(locator: string, value: any): Chainable<Element>,
 	}
 }

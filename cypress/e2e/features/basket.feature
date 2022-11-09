@@ -20,4 +20,10 @@ Feature: Basket Action
 #  @api-login
   Scenario: Purchase flow
     And I click checkout button
-    And I set new Address for delivery and click continue
+    And I click add new Address button
+    And I set "country", "name", "1234567", "zip", "address", "city", "state" into new Address for delivery
+    And I click submit Address form
+    And I choose Address
+    And  I click continue button
+    And I choose delivery speed and click continue button
+    And  I click continue button

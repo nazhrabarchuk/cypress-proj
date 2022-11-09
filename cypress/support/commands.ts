@@ -25,3 +25,12 @@ Cypress.Commands.add('selectOptionByText', (locator: string, text) => {
 Cypress.Commands.add('clickElement', (locator: string) => {
 	cy.get(locator).click()
 })
+
+Cypress.Commands.add('clickElementByText', (text: string) => {
+	cy.contains(text).click()
+})
+
+
+Cypress.Commands.add('setElementValue', (locator: string, value: any) => {
+	cy.get(locator).type(value)
+})

@@ -38,7 +38,7 @@ abstract class BasePage<T> {
 	}
 
 	setElementValue(locator: string, value: any) {
-		cy.get(locator).type(value)
+		cy.setElementValue(locator, value)
 	}
 
 	clickElement(locator: string): void {

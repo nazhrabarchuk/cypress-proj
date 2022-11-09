@@ -3,7 +3,6 @@ import { BaseComponent } from '../base.component'
 const LOCATORS = {
 	ADD_ADDRESS_BUTTON: 'button[aria-label="Add a new address"]',
 	ITEM_ADDRESS_BUTTON: 'label.mat-radio-label',
-	CONTINUE_BUTTON: 'button[aria-label="Proceed to payment selection"]',
 	ADDRESS_COUNTRY_INPUT: 'input[data-placeholder="Please provide a country."]',
 	ADDRESS_NAME_INPUT: 'input[data-placeholder="Please provide a name."]',
 	ADDRESS_MOBILE_NUMBER_INPUT: 'input[data-placeholder="Please provide a mobile number."]',
@@ -24,8 +23,30 @@ class BasketAddressComponents extends BaseComponent {
 		cy.clickElement(this.locators.ADD_ADDRESS_BUTTON)
 	}
 
-	fillAddressForm(data: any): void {
+	fillAddressForm(
+		country: any,
+		name: any,
+		mobileNumber: any,
+		zip: any,
+		address: any,
+		city: any,
+		state: any): void {
+		cy.setElementValue(this.locators.ADDRESS_COUNTRY_INPUT, country)
+		cy.setElementValue(this.locators.ADDRESS_NAME_INPUT, name)
+		cy.setElementValue(this.locators.ADDRESS_MOBILE_NUMBER_INPUT, mobileNumber)
+		cy.setElementValue(this.locators.ADDRESS_ZIP_INPUT, zip)
+		cy.setElementValue(this.locators.ADDRESS_INPUT, address)
+		cy.setElementValue(this.locators.ADDRESS_CITY_INPUT, city)
+		cy.setElementValue(this.locators.ADDRESS_STATE_INPUT, state)
 
+	}
+
+	submitAddressForm(): void {
+		cy.clickElement(this.locators.ADDRESS_SUBMIT_BUTTON)
+	}
+
+	chooseAddressItem(): void {
+		cy.clickElement(this.locators.ITEM_ADDRESS_BUTTON)
 	}
 }
 
