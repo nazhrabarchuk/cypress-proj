@@ -8,6 +8,7 @@ const LOCATORS = {
 	BASKET_BUTTON: 'button[routerlink="/basket"]',
 	SEARCH_BUTTON: '#searchQuery',
 	SEARCH_INPUT: '#searchQuery input',
+	USER_PROFILE_BUTTON: 'button[aria-label="Go to user profile"]',
 }
 
 class HeaderComponent extends BaseComponent {
@@ -26,6 +27,10 @@ class HeaderComponent extends BaseComponent {
 
 	clickBasketButton(): void {
 		cy.clickElement(this.locators.BASKET_BUTTON)
+	}
+
+	clickUserProfileButton(): void {
+		cy.clickElement(this.locators.USER_PROFILE_BUTTON)
 	}
 
 	shouldExistBasketButton(): void {

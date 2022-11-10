@@ -29,7 +29,7 @@ class RegistrationPage extends BasePage<RegistrationPage> {
 	}
 
 	errorRegistrationMsg(msg: any): void {
-		cy.shouldContainMessage(this.locators.ERROR_REGISTRATION_TEXT_ELEMENT, msg)
+		cy.shouldContainText(this.locators.ERROR_REGISTRATION_TEXT_ELEMENT, msg)
 	}
 
 	fillRegistrationForm(

@@ -12,8 +12,8 @@ Cypress.Commands.add('checkToken', (token: string) => {
 	cy.window().its('localStorage.token').should('eq', token)
 })
 
-Cypress.Commands.add('shouldContainMessage', (locator: string, msg: string) => {
-	cy.get(locator).should('contain', msg)
+Cypress.Commands.add('shouldContainText', (locator: string, text: string) => {
+	cy.get(locator).should('contain', text)
 })
 
 Cypress.Commands.add('selectOption', (locator: string, value: any) => {

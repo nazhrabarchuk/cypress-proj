@@ -16,7 +16,7 @@ class BasketSummaryComponent extends BaseComponent {
 	}
 
 	successfulPurchaseMsg(msg: any): void {
-		cy.shouldContainMessage(this.locators.CONFIRMATION_ELEMENT, msg)
+		cy.shouldContainText(this.locators.CONFIRMATION_ELEMENT, msg)
 	}
 }
 

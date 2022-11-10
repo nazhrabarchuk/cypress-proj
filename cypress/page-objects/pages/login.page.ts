@@ -32,7 +32,7 @@ class LoginPage extends BasePage<LoginPage> {
 	}
 
 	errorLoginMsg(): void {
-		cy.shouldContainMessage(this.locators.ERROR_TEXT_ELEMENT, ERROR_MESSAGES.ERROR_LOGIN)
+		cy.shouldContainText(this.locators.ERROR_TEXT_ELEMENT, ERROR_MESSAGES.ERROR_LOGIN)
 	}
 
 }
