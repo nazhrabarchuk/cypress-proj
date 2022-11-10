@@ -10,6 +10,8 @@ declare namespace Cypress {
 
 		'clickElementByText'(text: string): Chainable<HTMLElement>,
 
+		'selectOption'(locator: string, value: any): Chainable<Element>,
+
 		'selectOptionByText'(locator: string, text: string): Chainable<Element>,
 
 		'shouldContainMessage'(locator: string, msg: string): Chainable<Element>,

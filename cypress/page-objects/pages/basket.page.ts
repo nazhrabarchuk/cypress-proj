@@ -1,6 +1,8 @@
 import { BasePage } from './base.page'
 import { BasketAddressComponents } from '../components/basket/basket.address.components'
 import { BasketDeliveryComponent } from '../components/basket/basket.delivery.component'
+import { BasketPaymentComponent } from '../components/basket/basket.payment.component'
+import { BasketSummaryComponent } from '../components/basket/basket.summary.component'
 
 const LOCATORS = {
 	BASKET_ITEMS: 'mat-row.mat-row',
@@ -27,6 +29,14 @@ class BasketPage extends BasePage<BasketPage> {
 		return new BasketDeliveryComponent()
 	}
 
+	get payment() {
+		return new BasketPaymentComponent()
+	}
+
+	get summary() {
+		return new BasketSummaryComponent()
+	}
+
 	basketNotEmpty(): void {
 		cy.get(this.locators.BASKET_ITEMS).should('have.length', 1)
 	}
@@ -46,6 +56,7 @@ class BasketPage extends BasePage<BasketPage> {
 	clickContinueButton(): void {
 		cy.clickElementByText(' navigate_next ')
 	}
+
 }
 
 export default new BasketPage()

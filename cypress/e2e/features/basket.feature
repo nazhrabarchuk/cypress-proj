@@ -15,9 +15,8 @@ Feature: Basket Action
     And I click remove item from basket button
     Then Basket should be empty
 
-  @focus
-  @api-register-login
-#  @api-login
+
+  @api-login
   Scenario: Purchase flow
     And I click checkout button
     And I click add new Address button
@@ -27,3 +26,10 @@ Feature: Basket Action
     And  I click continue button
     And I choose delivery speed and click continue button
     And  I click continue button
+    And I click add new payment card
+    And I set "cardName", "1234567891234567", "5", "2080" into Payment card form
+    And I click submit Payment form
+    And I choose payment card
+    And I click continue button
+    And I click complete purchase button
+    Then I see successful purchase message "Thank you for your purchase!"

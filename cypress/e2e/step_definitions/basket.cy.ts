@@ -34,9 +34,28 @@ When(/^I click submit Address form$/, () => {
 When(/^I choose Address$/, () => {
 	basketPage.address.chooseAddressItem()
 })
-When(/^I click continue button$/, function() {
+When(/^I click continue button$/, () => {
 	basketPage.clickContinueButton()
 })
 When(/^I choose delivery speed and click continue button$/, () => {
 	basketPage.delivery.chooseDelivery()
+})
+When(/^I click add new payment card$/, () => {
+	basketPage.payment.addNewPaymentCard()
+})
+When(/^I set "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)" into Payment card form$/,
+	(param1, param2, param3, param4) => {
+		basketPage.payment.fillPaymentCardForm(param1, param2, param3, param4)
+	})
+When(/^I click submit Payment form$/, () => {
+	basketPage.payment.submitPaymentCardForm()
+})
+When(/^I choose payment card$/, () => {
+	basketPage.payment.choosePaymentCardItem()
+})
+When(/^I click complete purchase button$/, () => {
+	basketPage.summary.completePurchase()
+})
+Then(/^I see successful purchase message "([^"]*)"$/, (param) => {
+	basketPage.summary.successfulPurchaseMsg(param)
 })
