@@ -22,7 +22,7 @@ class ModalComponent extends BaseComponent {
 		}
 	}
 
-	notificationText(message: string) {
+	notificationText(message: any) {
 		cy.shouldContainText(this.locators.MODAL_NOTIFICATION_MESSAGE, message)
 	}
 }

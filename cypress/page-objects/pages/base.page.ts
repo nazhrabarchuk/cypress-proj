@@ -1,6 +1,7 @@
 import { HeaderComponent } from '../components/header.component'
 import { ModalComponent } from '../components/modal.component'
 import { ProductsComponent } from '../components/products.component'
+import { SidebarComponents } from '../components/sidebar.components'
 
 abstract class BasePage<T> {
 	private readonly pageUrl: string
@@ -37,12 +38,20 @@ abstract class BasePage<T> {
 		return new ProductsComponent()
 	}
 
+	get sideBar() {
+		return new SidebarComponents()
+	}
+
 	setElementValue(locator: string, value: any) {
 		cy.setElementValue(locator, value)
 	}
 
 	clickElement(locator: string): void {
 		cy.clickElement(locator)
+	}
+
+	calculate(fn: any): number {
+		return new Function(`return ${fn}`)()
 	}
 }
 

@@ -14,6 +14,8 @@ declare namespace Cypress {
 
 		'selectOptionByText'(locator: string, text: string): Chainable<Element>,
 
+		'waitForElementToBeVisible'(selector: string, ms: number): Chainable<Element>,
+
 		'shouldContainText'(locator: string, text: string): Chainable<Element>,
 
 		'checkToken'(token: string): Chainable<void>,

@@ -18,7 +18,7 @@ module.exports = defineConfig({
 		'baseUrl': 'http://localhost:3000/',
 		specPattern: 'cypress/e2e/features/*.feature',
 		'video': false,
-		'defaultCommandTimeout': 5000,
+		'defaultCommandTimeout': 7000,
 		'waitForAnimations': true,
 
 	},

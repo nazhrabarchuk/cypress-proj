@@ -7,6 +7,10 @@ Cypress.Commands.add('isVisible', (selector: string) => {
 Cypress.Commands.add('isHidden', (selector: string) => {
 	cy.get(selector).should('not.exist')
 })
+Cypress.Commands.add('waitForElementToBeVisible', (selector: string, ms: number) => {
+	cy.get(selector, {timeout: ms}).should('be.visible')
+})
+
 
 Cypress.Commands.add('checkToken', (token: string) => {
 	cy.window().its('localStorage.token').should('eq', token)
