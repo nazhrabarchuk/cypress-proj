@@ -7,8 +7,14 @@ Cypress.Commands.add('isVisible', (selector: string) => {
 Cypress.Commands.add('isHidden', (selector: string) => {
 	cy.get(selector).should('not.exist')
 })
+
+Cypress.Commands.add('isPresent', (elementSelector) => {
+	const isPresent = !document.querySelector(elementSelector)
+	return cy.wrap(isPresent)
+})
+
 Cypress.Commands.add('waitForElementToBeVisible', (selector: string, ms: number) => {
-	cy.get(selector, {timeout: ms}).should('be.visible')
+	cy.get(selector, { timeout: ms }).should('be.visible')
 })
 
 

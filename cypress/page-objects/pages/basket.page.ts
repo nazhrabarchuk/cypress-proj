@@ -57,6 +57,26 @@ class BasketPage extends BasePage<BasketPage> {
 		cy.clickElementByText(' navigate_next ')
 	}
 
+	clickPlusCountItem(): void {
+		cy.clickElement(this.locators.PLUS_COUNT_ITEM_BUTTON)
+	}
+
+	selectMaxCountOfProductItemAndGetMsg() {
+		cy.isPresent(this.modal.locators.MODAL_NOTIFICATION_MESSAGE).then(isPresent => {
+			if (isPresent) {
+				cy.log(`message is PRESENT`)
+				return
+				// cy.waitForElementToBeVisible(this.locators.PLUS_COUNT_ITEM_BUTTON,10000)
+			} else {
+				cy.log(`message is NOT PRESENT`)
+				// cy.wait(300)
+				// cy.clickElement(this.locators.PLUS_COUNT_ITEM_BUTTON)
+				// this.selectMaxCountOfProductItemAndGetMsg(msg)
+			}
+		})
+
+
+	}
 }
 
 export default new BasketPage()

@@ -13,8 +13,12 @@ class ProductsComponent extends BaseComponent {
 		return LOCATORS
 	}
 
-	clickProductItem(num: any) {
+	clickProductItemByIndex(num: any): void {
 		cy.clickElement(this.locators.productItem(num))
+	}
+
+	addLastProductItemToBasket(): void {
+		cy.get(this.locators.PRODUCT_ITEMS).last().find('button').click()
 	}
 }
 

@@ -4,7 +4,7 @@ import basketPage from '../../page-objects/pages/basket.page'
 import client from '../../fixtures/helpers/client'
 
 When(/^I add to basket product with index "([^"]*)"$/, (param1) => {
-	homePage.products.clickProductItem(param1)
+	homePage.products.clickProductItemByIndex(param1)
 })
 When(/^I click basket button$/, () => {
 	homePage.header.clickBasketButton()
