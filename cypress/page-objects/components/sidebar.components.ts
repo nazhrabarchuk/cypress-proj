@@ -13,6 +13,10 @@ class SidebarComponents extends BaseComponent {
 	clickCustomerFeedbackLink(): void {
 		cy.clickElement(this.locators.CUSTOMER_FEEDBACK_LINK)
 	}
+
+	clickAboutULink(): void {
+		cy.clickElement(this.locators.ABOUT_US_LINK)
+	}
 }
 
 export { SidebarComponents }

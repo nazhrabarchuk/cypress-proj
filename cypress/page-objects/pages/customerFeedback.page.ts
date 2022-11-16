@@ -18,7 +18,6 @@ class CustomerFeedbackPage extends BasePage<CustomerFeedbackPage> {
 	}
 
 	dragFeedbackRate(): void {
-		const dataTransfer = new DataTransfer()
 		cy.get(this.locators.SLIDER).trigger('mousedown', { button: 0 })
 			.trigger('mousemove', {
 				clientX: 450,
@@ -26,20 +25,14 @@ class CustomerFeedbackPage extends BasePage<CustomerFeedbackPage> {
 			.trigger('mouseup', { force: true })
 	}
 
-	async getCaptchaResult(): Promise<number> {
-		let text = await new Cypress.Promise<string>((resolve) => {
-			cy.waitForElementToBeVisible(this.locators.CAPTCHA_QUESTION_TEXT, 10000)
-			cy.get(this.locators.CAPTCHA_QUESTION_TEXT).invoke('text')
-				.then((txt) =>
-					resolve(txt.toString()))
-		})
-		return this.calculate(text)
-	}
-
-	async fillFeedbackForm(text: any): Promise<void> {
+	fillFeedbackForm(text: any) {
 		cy.setElementValue(this.locators.COMMENT_INPUT, text)
 		this.dragFeedbackRate()
-		cy.setElementValue(this.locators.CAPTCHA_RESULT_INPUT, await this.getCaptchaResult())
+		cy.get(this.locators.CAPTCHA_QUESTION_TEXT).then((text1) => {
+			let captchaResult = this.calculate(text1.text())
+			cy.setElementValue(this.locators.CAPTCHA_RESULT_INPUT, captchaResult)
+		})
+
 	}
 
 	submitFeedbackForm(): void {

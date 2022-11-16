@@ -50,7 +50,7 @@ abstract class BasePage<T> {
 		cy.clickElement(locator)
 	}
 
-	calculate(fn: any): number {
+	calculate(fn: any): any {
 		return new Function(`return ${fn}`)()
 	}
 }

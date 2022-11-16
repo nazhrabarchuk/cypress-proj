@@ -33,7 +33,9 @@ class UserPage extends BasePage<UserPage> {
 	}
 
 	isProfileImgExisting(): void {
-		cy.get(this.locators.PROFILE_IMG).invoke('attr', 'src').should('not.contain', 'default.svg')
+		cy.get(this.locators.PROFILE_IMG)
+			.invoke('attr', 'src')
+			.should('not.contain', 'default.svg')
 	}
 }
 

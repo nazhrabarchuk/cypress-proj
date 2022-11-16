@@ -1,5 +1,4 @@
 import { REGISTRATION_DATA } from '../dataProvider'
-import { resolve } from '@badeball/cypress-cucumber-preprocessor/lib/preprocessor-configuration'
 
 let question: string = ''
 
@@ -33,6 +32,7 @@ class Client {
 	}
 
 	logIn(arg = 'sessionStorage'): any {
+		//todo: try cy.session
 		cy.request({
 			method: 'POST',
 			url: `${Cypress.config().baseUrl}rest/user/login/`,

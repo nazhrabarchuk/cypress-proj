@@ -20,6 +20,7 @@ module.exports = defineConfig({
 		'video': false,
 		'defaultCommandTimeout': 7000,
 		'waitForAnimations': true,
+		chromeWebSecurity: false,
 
 	},
 })
