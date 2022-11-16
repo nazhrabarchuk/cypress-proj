@@ -33,8 +33,6 @@ class ModalComponent extends BaseComponent {
 	isElementVisible(message: any) {
 		return cy.get(this.locators.MODAL_NOTIFICATION_MESSAGE).contains(message)
 	}
-
-
 }
 
 export { ModalComponent }

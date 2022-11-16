@@ -48,6 +48,20 @@ class BasketAddressComponents extends BaseComponent {
 	chooseAddressItem(): void {
 		cy.clickElement(this.locators.ITEM_ADDRESS_BUTTON)
 	}
+
+	completeNewAddressForm(data:any): void{
+		this.addNewAddress()
+		this.fillAddressForm(
+			data.country,
+			data.name,
+			data.mobileNumber,
+			data.zip,
+			data.address,
+			data.city,
+			data.state)
+		this.submitAddressForm()
+		this.chooseAddressItem()
+	}
 }
 
 export { BasketAddressComponents }

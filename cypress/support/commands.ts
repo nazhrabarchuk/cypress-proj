@@ -8,9 +8,18 @@ Cypress.Commands.add('isHidden', (selector: string) => {
 	cy.get(selector).should('not.exist')
 })
 
-Cypress.Commands.add('isPresent', (elementSelector) => {
-	const isPresent = !document.querySelector(elementSelector)
-	return cy.wrap(isPresent)
+Cypress.Commands.add('isExist', (elementSelector) => {
+	cy.get('body').should('exist').then(($body) => {
+		return new Cypress.Promise((resolve) => {
+			if ($body.find(elementSelector).length > 0) {
+				cy.log(`cy.exist() - Matching ${elementSelector}  found in DOM!`);
+				resolve(true);
+			} else {
+				cy.log(`cy.exist() - Element ${elementSelector} did not exist!`);
+				resolve(false);
+			}
+		})
+	})
 })
 
 Cypress.Commands.add('waitForElementToBeVisible', (selector: string, ms: number) => {

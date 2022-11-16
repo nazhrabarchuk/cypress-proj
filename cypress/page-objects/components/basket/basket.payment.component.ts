@@ -41,6 +41,18 @@ class BasketPaymentComponent extends BaseComponent {
 	choosePaymentCardItem(): void {
 		cy.clickElement(this.locators.ITEM_CARD_BUTTON)
 	}
+
+	completePaymentCardForm(data: any): void {
+		this.addNewPaymentCard()
+		this.fillPaymentCardForm(
+			data.name,
+			data.cardNumber,
+			data.month,
+			data.year,
+		)
+		this.submitPaymentCardForm()
+		this.choosePaymentCardItem()
+	}
 }
 
 export { BasketPaymentComponent }

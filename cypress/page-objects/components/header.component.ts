@@ -37,6 +37,10 @@ class HeaderComponent extends BaseComponent {
 		cy.clickElement(this.locators.BURGER_BUTTON)
 	}
 
+	clickLogoImg(): void {
+		cy.clickElement(this.locators.LOGO_IMG)
+	}
+
 	shouldExistBasketButton(): void {
 		cy.isVisible(this.locators.BASKET_BUTTON)
 	}

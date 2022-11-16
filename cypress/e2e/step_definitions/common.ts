@@ -1,8 +1,6 @@
 import { After, Before, Given } from '@badeball/cypress-cucumber-preprocessor'
 import homePage from '../../page-objects/pages/home.page'
 import client from '../../fixtures/helpers/client'
-import { cli } from 'cypress'
-import Client from '../../fixtures/helpers/client'
 
 /**
  * Precondition step: Api Registration

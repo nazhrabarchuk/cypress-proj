@@ -62,20 +62,24 @@ class BasketPage extends BasePage<BasketPage> {
 	}
 
 	selectMaxCountOfProductItemAndGetMsg() {
-		cy.isPresent(this.modal.locators.MODAL_NOTIFICATION_MESSAGE).then(isPresent => {
-			if (isPresent) {
-				cy.log(`message is PRESENT`)
-				return
-				// cy.waitForElementToBeVisible(this.locators.PLUS_COUNT_ITEM_BUTTON,10000)
-			} else {
-				cy.log(`message is NOT PRESENT`)
-				// cy.wait(300)
-				// cy.clickElement(this.locators.PLUS_COUNT_ITEM_BUTTON)
-				// this.selectMaxCountOfProductItemAndGetMsg(msg)
+		cy.isExist(this.modal.locators.MODAL_NOTIFICATION_MESSAGE).then((exists) => {
+			if (!exists) {
+				cy.wait(300)
+				this.clickPlusCountItem()
+				this.selectMaxCountOfProductItemAndGetMsg()
 			}
 		})
+	}
 
-
+	basketPurchaseFlow(addressData: any, cardData: any, msg: string): void {
+		this.address.completeNewAddressForm(addressData)
+		this.clickContinueButton()
+		this.delivery.chooseDelivery()
+		this.clickContinueButton()
+		this.payment.completePaymentCardForm(cardData)
+		this.clickContinueButton()
+		this.summary.completePurchase()
+		this.summary.successfulPurchaseMsg(msg)
 	}
 }
 

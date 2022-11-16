@@ -18,7 +18,7 @@ declare namespace Cypress {
 
 		'shouldContainText'(locator: string, text: string): Chainable<Element>,
 
-		'isPresent'(elementSelector: any): Chainable<boolean>,
+		'isExist'(elementSelector: any): Chainable<boolean>,
 
 		'checkToken'(token: string): Chainable<void>,
 

@@ -1,4 +1,3 @@
-import dataHelper from './helpers/data.helper'
 let randomEmail = require('random-email');
 
 
@@ -14,3 +13,19 @@ export const LOGIN_DATA = {
 	pass: REGISTRATION_DATA.password,
 }
 
+export const ADDRESS_DATA = {
+	country: 'Country',
+	name: 'Name',
+	mobileNumber: '1234567',
+	zip: 'zip',
+	address: 'Address',
+	city: 'City',
+	state: 'State'
+};
+
+export const CARD_DATA = {
+	name: 'Name 1',
+	cardNumber: '1234567891234567',
+	month: '1',
+	year: '2080'
+};

@@ -20,6 +20,9 @@ class ProductsComponent extends BaseComponent {
 	addLastProductItemToBasket(): void {
 		cy.get(this.locators.PRODUCT_ITEMS).last().find('button').click()
 	}
+	isLastItemOutOfStock(msg:any): void {
+		cy.get(this.locators.PRODUCT_ITEMS).last().contains(msg)
+	}
 }
 
 export { ProductsComponent }
