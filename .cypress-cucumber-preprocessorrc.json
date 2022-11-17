@@ -1,13 +1,10 @@
 {
-  "json": {
-    "enabled": false,
-    "output": "jsonreport/test.json"
-  },
-  "nonGlobalStepDefinitions": true,
+  "nonGlobalStepDefinitions": false,
   "outputFolder": "cypress/cucumber-json",
-  "stepDefinitions": [
-    "[filepath]/**/*/{js,ts}",
-    "[filepath].{js,ts}",
-    "cypress/e2e/step_definitions/*.{js,ts}"
-  ]
+  "stepDefinitions": "cypress/e2e/step_definitions/*.{js,ts}",
+  "json": {
+    "enabled": true,
+    "formatter": "jsonFormatter/cucumber-json-formatter",
+    "output": "json-logs/report.json"
+  }
 }

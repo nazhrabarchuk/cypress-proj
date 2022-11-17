@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "generate-report": "node ./cucumber-html-reports.js & start ./cucumber-report/index.html",
+    "open-report": "start ./cucumber-report/index.html"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "cypress-drag-drop": "^1.1.1",
     "cypress-plugin-api": "^2.3.1",
     "esbuild": "^0.15.12",
+    "multiple-cucumber-html-reporter": "^3.0.1",
     "prettier": "^2.7.1",
     "random-email": "^1.0.3",
     "ts-node": "^10.9.1",
