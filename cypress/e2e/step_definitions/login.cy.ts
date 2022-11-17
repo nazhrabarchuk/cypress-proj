@@ -1,4 +1,4 @@
-import { Before, Given, Then, When } from '@badeball/cypress-cucumber-preprocessor'
+import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
 import homePage from '../../page-objects/pages/home.page'
 import loginPage from '../../page-objects/pages/login.page'
 import { LOGIN_DATA } from '../../fixtures/dataProvider'
@@ -13,8 +13,10 @@ When(/^I click on sign in login$/, () => {
 	loginPage.submitLogIn()
 })
 
-When(/^I fill login form with "([^"]*)" and "([^"]*)"$/, (param1, param2) => {
-	loginPage.login(param1, param2)
+When(/^I fill login form with incorrect creds$/, (table: any) => {
+	table.hashes().forEach((row: any) => {
+		loginPage.login(row.email, row.password)
+	})
 })
 
 Then(/^I should see basket button on the homepage$/, () => {
@@ -22,6 +24,6 @@ Then(/^I should see basket button on the homepage$/, () => {
 	homePage.header.shouldExistBasketButton()
 })
 
-Then(/^I should see error login message$/, function() {
+Then(/^I should see error login message$/, () => {
 	loginPage.errorLoginMsg()
 })

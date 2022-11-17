@@ -20,15 +20,19 @@ Feature: Basket Action
   Scenario: Purchase flow
     And I click checkout button
     And I click add new Address button
-    And I set "country", "name", "1234567", "zip", "address", "city", "state" into new Address for delivery
+    And I set creds into new Address for delivery
+      | country | name | mobileNumber | zip | address | city | state |
+      | Country | Name | 1234567      | zip | Address | City | State |
     And I click submit Address form
     And I choose Address
     And  I click continue button
     And I choose delivery speed and click continue button
     And  I click continue button
     And I click add new payment card
-    And I set "cardName", "1234567891234567", "5", "2080" into Payment card form
-    And I click submit Payment form
+    And I set creds into Payment card form
+      | name      | cardNumber       | month | year |
+      | Card Name | 1234567891234567 | 5     | 2080 |
+      And I click submit Payment form
     And I choose payment card
     And I click continue button
     And I click complete purchase button

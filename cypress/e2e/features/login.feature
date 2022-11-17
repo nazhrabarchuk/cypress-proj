@@ -10,7 +10,9 @@ Feature: Login Action
     When I Navigate to Login Page
 
   Scenario: Invalid Login
-    And I fill login form with "wrong_email" and "wrong_password"
+    And I fill login form with incorrect creds
+      | email       | password       |
+      | wrong email | wrong_password |
     And I click on sign in login
     Then I should see error login message
 

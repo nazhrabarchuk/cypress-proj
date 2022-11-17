@@ -1,7 +1,6 @@
-import { Before, Given, Then, When } from '@badeball/cypress-cucumber-preprocessor'
+import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
 import homePage from '../../page-objects/pages/home.page'
 import basketPage from '../../page-objects/pages/basket.page'
-import client from '../../fixtures/helpers/client'
 
 When(/^I add to basket product with index "([^"]*)"$/, (param1) => {
 	homePage.products.clickProductItemByIndex(param1)
@@ -24,10 +23,19 @@ When(/^I click checkout button$/, () => {
 When(/^I click add new Address button$/, () => {
 	basketPage.address.addNewAddress()
 })
-When(/^I set "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)" into new Address for delivery$/,
-	(param1, param2, param3, param4, param5, param6, param7) => {
-		basketPage.address.fillAddressForm(param1, param2, param3, param4, param5, param6, param7)
+When(/^I set creds into new Address for delivery$/, (table: any) => {
+	table.hashes().forEach((row: any) => {
+		basketPage.address.fillAddressForm(
+			row.country,
+			row.name,
+			row.mobileNumber,
+			row.zip,
+			row.address,
+			row.city,
+			row.state)
 	})
+})
+
 When(/^I click submit Address form$/, () => {
 	basketPage.address.submitAddressForm()
 })
@@ -47,6 +55,16 @@ When(/^I set "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)" into Payment card form$/
 	(param1, param2, param3, param4) => {
 		basketPage.payment.fillPaymentCardForm(param1, param2, param3, param4)
 	})
+When(/^I set creds into Payment card form$/, (table: any) => {
+	table.hashes().forEach((row: any) => {
+		basketPage.payment.fillPaymentCardForm(
+			row.name,
+			row.cardNumber,
+			row.month,
+			row.year,
+		)
+	})
+})
 When(/^I click submit Payment form$/, () => {
 	basketPage.payment.submitPaymentCardForm()
 })
