@@ -7,6 +7,8 @@ const LOCATORS = {
 	PROFILE_IMG: 'img.img-rounded',
 	PROFILE_IMAGE_URL_INPUT: 'input[name="imageUrl"]',
 	PROFILE_IMAGE_URL_SUBMIT: '#submitUrl',
+	UPLOAD_IMG_FILE: '#picture',
+	UPLOAD_IMG_SUBMIT_BUTTON: 'button[aria-label="Button to upload the profile picture"]',
 }
 
 class UserPage extends BasePage<UserPage> {
@@ -36,6 +38,11 @@ class UserPage extends BasePage<UserPage> {
 		cy.get(this.locators.PROFILE_IMG)
 			.invoke('attr', 'src')
 			.should('not.contain', 'default.svg')
+	}
+
+	uploadImg(): void {
+		cy.get(this.locators.UPLOAD_IMG_FILE).selectFile('cypress/fixtures/user.png')
+		cy.clickElement(this.locators.UPLOAD_IMG_SUBMIT_BUTTON)
 	}
 }
 
