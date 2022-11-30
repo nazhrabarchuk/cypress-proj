@@ -16,10 +16,6 @@ const REGISTER_USER_POST_BODY_DATA = {
 }
 
 class Client {
-	static TOKEN: any
-	static BID: string | null
-	static ID: any | null
-
 	/**
 	 * GET security question by request
 	 */
@@ -31,8 +27,7 @@ class Client {
 		)
 	}
 
-	logIn(arg = 'sessionStorage'): any {
-		//todo: try cy.session
+	logIn(): any {
 		cy.request({
 			method: 'POST',
 			url: `${Cypress.config().baseUrl}rest/user/login/`,
@@ -44,7 +39,6 @@ class Client {
 		})
 
 	}
-
 
 	/**
 	 * Register user on the site

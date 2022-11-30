@@ -4,6 +4,8 @@ const addCucumberPreprocessorPlugin = require('@badeball/cypress-cucumber-prepro
 const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esbuild').createEsbuildPlugin
 
 module.exports = defineConfig({
+	viewportWidth: 1920,
+	viewportHeight: 1080,
 	e2e: {
 		async setupNodeEvents(on, config) {
 			// implement node event listeners here

@@ -1,5 +1,4 @@
 import { BasePage } from './base.page'
-import { ERROR_MESSAGES } from '../../fixtures/messages'
 
 const LOCATORS = {
 	LOGIN_EMAIL_INPUT: '#email',
@@ -31,8 +30,8 @@ class LoginPage extends BasePage<LoginPage> {
 		this.clickElement(locator)
 	}
 
-	errorLoginMsg(): void {
-		cy.shouldContainText(this.locators.ERROR_TEXT_ELEMENT, ERROR_MESSAGES.ERROR_LOGIN)
+	errorLoginMsg(msg: any): void {
+		cy.shouldContainText(this.locators.ERROR_TEXT_ELEMENT, msg)
 	}
 
 }

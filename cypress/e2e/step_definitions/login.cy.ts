@@ -24,6 +24,6 @@ Then(/^I should see basket button on the homepage$/, () => {
 	homePage.header.shouldExistBasketButton()
 })
 
-Then(/^I should see error login message$/, () => {
-	loginPage.errorLoginMsg()
-})
+Then(/^I should see error login message "([^"]*)"$/, (param)=> {
+	loginPage.errorLoginMsg(param)
+});

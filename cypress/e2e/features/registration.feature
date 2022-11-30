@@ -8,7 +8,7 @@ Feature: Registration on the Application
   Scenario: Valid Registration:
     When I fill the registration form with valid creds
     And I click submit button
-    Then I should see successful registration message on Login page
+    Then I should see message "Registration completed successfully. You can now log in." on Login page
 
   Scenario Outline: Invalid Registration:
     When I enter "<email>", "<password>", "<password2>", "<securityQuestion>", "<securityAnswer>"

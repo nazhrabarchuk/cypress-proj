@@ -8,6 +8,6 @@ Feature: Sold-out Action
     And I click basket button
     And I set max count of product
     And I click checkout button
-    And I complete basket purchase flow and go to mainPage
+    And I complete basket purchase flow with successfully message "Thank you for your purchase!" and go to mainPage
     And I go to last page with products
     Then Last product item contain the mark "Sold Out"

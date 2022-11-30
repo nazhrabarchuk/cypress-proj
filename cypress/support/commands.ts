@@ -1,5 +1,3 @@
-import client from '../fixtures/helpers/client'
-
 Cypress.Commands.add('isVisible', (selector: string) => {
 	cy.get(selector).should('be.visible')
 })
@@ -38,6 +36,7 @@ Cypress.Commands.add('shouldContainText', (locator: string, text: string) => {
 Cypress.Commands.add('selectOption', (locator: string, value: any) => {
 	cy.get(locator).select(value)
 })
+
 Cypress.Commands.add('selectOptionByText', (locator: string, text) => {
 	cy.get(locator).click()
 	cy.contains(text).click()

@@ -71,7 +71,7 @@ class BasketPage extends BasePage<BasketPage> {
 		})
 	}
 
-	basketPurchaseFlow(addressData: any, cardData: any, msg: string): void {
+	basketPurchaseFlow(addressData: any, cardData: any, msg: any): void {
 		this.address.completeNewAddressForm(addressData)
 		this.clickContinueButton()
 		this.delivery.chooseDelivery()

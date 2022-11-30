@@ -14,7 +14,7 @@ Feature: Login Action
       | email       | password       |
       | wrong email | wrong_password |
     And I click on sign in login
-    Then I should see error login message
+    Then I should see error login message "Invalid email or password."
 
   @api-registration
   Scenario: Successful Login with Valid Credentials
