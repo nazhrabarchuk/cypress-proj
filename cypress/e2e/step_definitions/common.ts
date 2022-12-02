@@ -1,4 +1,4 @@
-import { After, Before, Given } from '@badeball/cypress-cucumber-preprocessor'
+import { Before, Given } from '@badeball/cypress-cucumber-preprocessor'
 import homePage from '../../page-objects/pages/home.page'
 import client from '../../fixtures/helpers/client'
 
@@ -27,3 +27,9 @@ Given(/^I am on Home Page$/, () => {
 	homePage.open()
 })
 
+/**
+ * Open Home Page
+ */
+Given(/^the product store home page is displayed$/, () => {
+	homePage.open()
+})

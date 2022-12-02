@@ -3,11 +3,11 @@ import loginPage from '../../page-objects/pages/login.page'
 import registrationPage from '../../page-objects/pages/registration.page'
 import { REGISTRATION_DATA } from '../../fixtures/dataProvider'
 
-When(/^I click 'Not yet a customer' button$/, () => {
+When(/^the user want to create an account$/, () => {
 	loginPage.clickRegistrationButton()
 })
 
-When(/^I fill the registration form with valid creds$/, () => {
+When(/^the user fill the registration form with valid credentials$/, () => {
 	registrationPage.fillRegistrationForm(
 		REGISTRATION_DATA.email,
 		REGISTRATION_DATA.password,
@@ -15,21 +15,19 @@ When(/^I fill the registration form with valid creds$/, () => {
 		REGISTRATION_DATA.securityQuestion,
 		REGISTRATION_DATA.securityAnswer,
 	)
-})
-When(/^I click submit button$/, () => {
 	registrationPage.clickSubmitRegisterButton()
 })
 
-Then(/^I should see message "([^"]*)" on Login page$/, (param) => {
-	loginPage.pageShouldExist()
-	loginPage.modal.notificationText(param)
-})
-
-When(/^I enter "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)"$/,
-	(param1, param2, param3, param4, param5) => {
-		registrationPage.fillRegistrationForm(param1, param2, param3, param4, param5)
+When(/^the user type "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)" into the registration form$/,
+	(email, password, password2, securityQuestion, securityAnswer) => {
+		registrationPage.fillRegistrationForm(email, password, password2, securityQuestion, securityAnswer)
 	})
 
-Then(/^I should see the "([^"]*)" on screen$/, (param1) => {
-	registrationPage.errorRegistrationMsg(param1)
+Then(/^the message "([^"]*)" is shown on the login page$/, (msg) => {
+	loginPage.pageShouldExist()
+	loginPage.modal.notificationText(msg)
+})
+
+Then(/^the message "([^"]*)" is displayed on the screen$/, (msg) => {
+	registrationPage.errorRegistrationMsg(msg)
 })

@@ -1,19 +1,19 @@
 Feature: Registration on the Application
 
   Background:
-    Given I am on Home Page
-    And I Navigate to Login Page
-    And I click 'Not yet a customer' button
+    Given the product store home page is displayed
 
   Scenario: Valid Registration:
-    When I fill the registration form with valid creds
-    And I click submit button
-    Then I should see message "Registration completed successfully. You can now log in." on Login page
+    Given the user navigates to login page
+    When the user want to create an account
+    And the user fill the registration form with valid credentials
+    Then the message "Registration completed successfully. You can now log in." is shown on the login page
 
   Scenario Outline: Invalid Registration:
-    When I enter "<email>", "<password>", "<password2>", "<securityQuestion>", "<securityAnswer>"
-    Then I should see the "<msg>" on screen
-
+    Given the user navigates to login page
+    When the user want to create an account
+    And the user type "<email>", "<password>", "<password2>", "<securityQuestion>", "<securityAnswer>" into the registration form
+    Then the message "<msg>" is displayed on the screen
     Examples:
       | email         | password | password2    | securityQuestion      | securityAnswer | msg                                    |
       | test          | testPass | testPass     | Mother's maiden name? | Mothers name   | Email address is not valid.            |

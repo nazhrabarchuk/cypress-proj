@@ -1,13 +1,12 @@
 Feature: Sold-out Action
 
+
   @api-register-login
   Scenario: Buying last items and checking if items are marked as sold-out
-    Given I am on Home Page
-    When I go to last page with products
-    And I add to basket last product item
-    And I click basket button
-    And I set max count of product
-    And I click checkout button
-    And I complete basket purchase flow with successfully message "Thank you for your purchase!" and go to mainPage
-    And I go to last page with products
-    Then Last product item contain the mark "Sold Out"
+    Given the product store home page is displayed
+    When the user goes to the last page of product list
+    And the user adds the last item to the cart
+    And the user sets max quantity of product in basket
+    And the user complete purchase with successfully message "Thank you for your purchase!"
+    And the user goes to the last page of product list
+    Then the last product item contains the mark "Sold Out"
