@@ -1,10 +1,10 @@
-import { Given, Then, When } from '@badeball/cypress-cucumber-preprocessor'
+import {  Then, When } from '@badeball/cypress-cucumber-preprocessor'
 import homePage from '../../page-objects/pages/home.page'
 import loginPage from '../../page-objects/pages/login.page'
 import { LOGIN_DATA } from '../../fixtures/dataProvider'
 
 
-Given(/^the user navigates to login page$/, () => {
+When(/^the user navigates to login page$/, () => {
 	homePage.navigateToLogin()
 })
 

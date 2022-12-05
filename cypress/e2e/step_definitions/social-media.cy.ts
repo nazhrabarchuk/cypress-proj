@@ -4,14 +4,14 @@ import aboutUsPage from '../../page-objects/pages/aboutUs.page'
 import facebookPage from '../../page-objects/pages/facebook.page'
 
 
-When(/^I navigate to About Us page$/, () => {
+When(/^the user navigates to About Us page$/, () => {
 	homePage.header.clickBurgerButton()
 	homePage.sideBar.clickAboutULink()
 })
-When(/^I click social Facebook button$/, () => {
+When(/^the user select Facebook social-media link$/, () => {
 	aboutUsPage.clickSocialFacebookButton()
 })
-Then(/^I should see Facebook page with title "([^"]*)"$/, (param) => {
+Then(/^the Facebook page with title "([^"]*)" is displayed$/, (title) => {
 	facebookPage.clickReloadPage()
-	facebookPage.profileTitleShouldExistWithText(param)
+	facebookPage.profileTitleShouldExistWithText(title)
 })

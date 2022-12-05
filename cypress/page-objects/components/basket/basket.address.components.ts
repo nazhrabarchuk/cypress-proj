@@ -39,6 +39,7 @@ class BasketAddressComponents extends BaseComponent {
 		cy.setElementValue(this.locators.ADDRESS_CITY_INPUT, city)
 		cy.setElementValue(this.locators.ADDRESS_STATE_INPUT, state)
 
+		this.submitAddressForm()
 	}
 
 	submitAddressForm(): void {
@@ -49,7 +50,7 @@ class BasketAddressComponents extends BaseComponent {
 		cy.clickElement(this.locators.ITEM_ADDRESS_BUTTON)
 	}
 
-	completeNewAddressForm(data:any): void{
+	completeNewAddressForm(data: any): void {
 		this.addNewAddress()
 		this.fillAddressForm(
 			data.country,

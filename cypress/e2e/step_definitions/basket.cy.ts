@@ -2,21 +2,19 @@ import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
 import homePage from '../../page-objects/pages/home.page'
 import basketPage from '../../page-objects/pages/basket.page'
 
-When(/^I add to basket product with index "([^"]*)"$/, (param1) => {
-	homePage.products.clickProductItemByIndex(param1)
+
+When(/^the user adds a product with the index "([^"]*)" to the cart$/, (index) => {
+	homePage.products.clickProductItemByIndex(index)
 })
-When(/^I click basket button$/, () => {
+When(/^the user removes the product from the cart$/, () => {
 	homePage.header.clickBasketButton()
-})
-When(/^Basket shouldn't be empty$/, () => {
-	basketPage.basketNotEmpty()
-})
-When(/^I click remove item from basket button$/, () => {
 	basketPage.removeItemFromBasket()
 })
-Then(/^Basket should be empty$/, () => {
+Then(/^the cart should be empty$/, () => {
 	basketPage.basketEmpty()
 })
+//
+
 When(/^I click checkout button$/, () => {
 	basketPage.clickCheckoutButton()
 })
@@ -32,7 +30,8 @@ When(/^I set creds into new Address for delivery$/, (table: any) => {
 			row.zip,
 			row.address,
 			row.city,
-			row.state)
+			row.state,
+		)
 	})
 })
 
@@ -51,17 +50,11 @@ When(/^I choose delivery speed and click continue button$/, () => {
 When(/^I click add new payment card$/, () => {
 	basketPage.payment.addNewPaymentCard()
 })
-When(/^I set "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)" into Payment card form$/,
-	(param1, param2, param3, param4) => {
-		basketPage.payment.fillPaymentCardForm(param1, param2, param3, param4)
-	})
+
 When(/^I set creds into Payment card form$/, (table: any) => {
 	table.hashes().forEach((row: any) => {
 		basketPage.payment.fillPaymentCardForm(
-			row.name,
-			row.cardNumber,
-			row.month,
-			row.year,
+			row.name, row.cardNumber, row.month, row.year,
 		)
 	})
 })
@@ -76,4 +69,45 @@ When(/^I click complete purchase button$/, () => {
 })
 Then(/^I see successful purchase message "([^"]*)"$/, (param) => {
 	basketPage.summary.successfulPurchaseMsg(param)
+})
+//
+
+When(/^the user wants to purchase the product$/, () => {
+	basketPage.clickCheckoutButton()
+})
+When(/^the user adds a new delivery Address and choose them$/, (table: any) => {
+	basketPage.address.addNewAddress()
+	table.hashes().forEach((row: any) => {
+		basketPage.address.fillAddressForm(
+			row.country,
+			row.name,
+			row.mobileNumber,
+			row.zip,
+			row.address,
+			row.city,
+			row.state,
+		)
+	})
+	basketPage.address.chooseAddressItem()
+	basketPage.clickContinueButton()
+})
+When(/^the user choose delivery speed$/, () => {
+	basketPage.delivery.chooseDelivery()
+	basketPage.clickContinueButton()
+})
+When(/^the user adds a new payment card and choose them$/, (table: any) => {
+	basketPage.payment.addNewPaymentCard()
+	table.hashes().forEach((row: any) => {
+		basketPage.payment.fillPaymentCardForm(
+			row.name, row.cardNumber, row.month, row.year,
+		)
+	})
+	basketPage.payment.choosePaymentCardItem()
+	basketPage.clickContinueButton()
+})
+When(/^the user submit purchase$/, () => {
+	basketPage.summary.completePurchase()
+})
+Then(/^the message "([^"]*)" is shown on the page$/, (msg) => {
+	basketPage.summary.successfulPurchaseMsg(msg)
 })

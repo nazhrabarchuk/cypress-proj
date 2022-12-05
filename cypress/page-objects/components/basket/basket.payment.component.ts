@@ -32,6 +32,8 @@ class BasketPaymentComponent extends BaseComponent {
 		cy.setElementValue(this.locators.NEW_CARD_NUMBER_INPUT, cardNumber)
 		cy.selectOption(this.locators.NEW_CARD_EXPIRY_MONTH_DROPDOWN, month)
 		cy.selectOption(this.locators.NEW_CARD_EXPIRY_YEAR_DROPDOWN, year)
+
+		this.submitPaymentCardForm()
 	}
 
 	submitPaymentCardForm(): void {

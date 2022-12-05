@@ -5,11 +5,9 @@ Feature: Login Action
   As a valid user
   I want to log in into Application
 
-  Background:
-    Given the product store home page is displayed
-
   Scenario: Invalid Login
-    Given the user navigates to login page
+    Given the product store home page is displayed
+    When the user navigates to login page
     When the user fill login form with incorrect cred
       | email       | password       |
       | wrong email | wrong_password |
@@ -17,8 +15,9 @@ Feature: Login Action
 
   @api-registration
   Scenario: Successful Login with Valid Credentials
-    Given the user navigates to login page
-    When the user fill login form with valid credentials
+    Given the product store home page is displayed
+    When the user navigates to login page
+    And the user fill login form with valid credentials
     Then the basket button is displayed on the homepage
 
 
