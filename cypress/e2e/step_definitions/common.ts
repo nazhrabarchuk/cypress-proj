@@ -20,12 +20,6 @@ Before({ tags: '@api-register-login' }, () => {
 Before({ tags: '@api-login' }, () => {
 	client.logIn()
 })
-/**
- * Open Home Page
- */
-Given(/^I am on Home Page$/, () => {
-	homePage.open()
-})
 
 /**
  * Open Home Page

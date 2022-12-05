@@ -3,19 +3,24 @@ import userPage from '../../page-objects/pages/user.page'
 import homePage from '../../page-objects/pages/home.page'
 
 
-When(/^I open my profile page$/, () => {
-	homePage.header.openAccountMenu()
-	homePage.header.clickUserProfileButton()
-})
-When(/^I set "([^"]*)" into username$/, (param) => {
-	userPage.setUsername(param)
-})
+When(/^the user navigates to profile page$/,
+	() => {
+		homePage.header.openAccountMenu()
+		homePage.header.clickUserProfileButton()
+	})
 
-When(/^I upload new profile image$/, () => {
-	userPage.uploadImg()
-})
+When(/^the user set "([^"]*)" into username input$/,
+	(name) => {
+		userPage.setUsername(name)
+	})
 
-Then(/^Profile image should be updated and name username is equal "([^"]*)"$/, (param) => {
-	userPage.isProfileContainUsername(param)
-	userPage.isProfileImgExisting()
-})
+When(/^the user uploads a new profile image$/,
+	() => {
+		userPage.uploadImg()
+	})
+
+Then(/^the profile image should be updated and name username is equal "([^"]*)"$/,
+	(mame) => {
+		userPage.isProfileContainUsername(mame)
+		userPage.isProfileImgExisting()
+	})

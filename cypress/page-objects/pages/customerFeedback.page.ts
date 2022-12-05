@@ -20,7 +20,7 @@ class CustomerFeedbackPage extends BasePage<CustomerFeedbackPage> {
 	dragFeedbackRate(): void {
 		cy.get(this.locators.SLIDER).trigger('mousedown', { button: 0 })
 			.trigger('mousemove', {
-				clientX: 450,
+				clientX: 790,
 			})
 			.trigger('mouseup', { force: true })
 	}
@@ -33,6 +33,7 @@ class CustomerFeedbackPage extends BasePage<CustomerFeedbackPage> {
 			cy.setElementValue(this.locators.CAPTCHA_RESULT_INPUT, captchaResult)
 		})
 
+		this.submitFeedbackForm()
 	}
 
 	submitFeedbackForm(): void {

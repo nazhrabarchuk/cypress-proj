@@ -5,11 +5,11 @@ Feature: Change User info
 
   @api-register-login
   Scenario Outline: Change profile information
-    Given I am on Home Page
-    When I open my profile page
-    And I set "<username>" into username
-    And I upload new profile image
-    Then Profile image should be updated and name username is equal "<username>"
+    Given the product store home page is displayed
+    When the user navigates to profile page
+    And the user set "<username>" into username input
+    And the user uploads a new profile image
+    Then the profile image should be updated and name username is equal "<username>"
 
 
     Examples:
