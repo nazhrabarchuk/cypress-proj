@@ -2,12 +2,12 @@ import { REGISTRATION_DATA } from '../dataProvider'
 
 let question: string = ''
 
-const LOGIN_USER_POST_BODY_DATA = {
+export const LOGIN_USER_POST_BODY_DATA = {
 	email: REGISTRATION_DATA.email,
 	password: REGISTRATION_DATA.password,
 }
 
-const REGISTER_USER_POST_BODY_DATA = {
+export const REGISTER_USER_POST_BODY_DATA = {
 	email: REGISTRATION_DATA.email,
 	password: REGISTRATION_DATA.password,
 	passwordRepeat: REGISTRATION_DATA.password,
@@ -43,9 +43,9 @@ class Client {
 	/**
 	 * Register user on the site
 	 */
-	register(): any {
+	register(body = REGISTER_USER_POST_BODY_DATA): any {
 		question = this.securityQuestionGet()
-		cy.request('POST', `${Cypress.config().baseUrl}api/Users`, REGISTER_USER_POST_BODY_DATA)
+		cy.request('POST', `${Cypress.config().baseUrl}api/Users`, body)
 	}
 }
 
