@@ -1,4 +1,4 @@
-Feature: Registration & Login through REST API
+Feature: Registration & Login via REST API
 
 
   Scenario: API Registration
