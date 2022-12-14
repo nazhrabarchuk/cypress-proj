@@ -1,23 +1,36 @@
-import { Given, Then, When } from '@badeball/cypress-cucumber-preprocessor'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
-Given(/^a feedback request body$/, () => {
-	cy.request('GET', 'rest/captcha/').then((response) => {
-		const requestBody = {
-			captchaId: response.body.captchaId,
-			captcha: response.body.answer,
-			comment: 'API test!1',
-			rating: 3,
+let getCaptcha: any, request: any
+
+Given(/^a GET captcha body$/, () => {
+	getCaptcha = cy.request('GET', 'rest/captcha/')
+		.then((response) => response)
+})
+
+When(/^i send POST request with captcha body$/,(table: any) => {
+	table.hashes().forEach((row: any) => {
+		request = (response: any) => {
+			cy.request({
+				method: 'POST',
+				url: row.url,
+				headers: {
+					authorization: `Bearer ${window.localStorage.getItem('token')}`,
+				},
+				body: {
+					captchaId: response.captchaId,
+					captcha: response.answer,
+					comment: row.comment,
+					rating: row.rating,
+				},
+			})
 		}
-		cy.request({
-			method: 'POST',
-			url: 'api/Feedbacks',
-			headers: {
-				authorization: `Bearer ${window.localStorage.getItem('token')}`,
-			},
-			body: requestBody,
-		}).then(response => {
-			expect(response.status).to.equal(201)
-		})
+	})
+})
 
+Then(/^i get feedback response code (\d+)$/, (status) => {
+	getCaptcha.then((response: any) => {
+		request(response.body)
+	}).then((response: any) => {
+		expect(response.status).to.equal(status)
 	})
 })
