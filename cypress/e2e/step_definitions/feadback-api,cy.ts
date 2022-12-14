@@ -7,7 +7,7 @@ Given(/^a GET captcha body$/, () => {
 		.then((response) => response)
 })
 
-When(/^i send POST request with captcha body$/,(table: any) => {
+When(/^i send POST request with captcha body$/, (table: any) => {
 	table.hashes().forEach((row: any) => {
 		request = (response: any) => {
 			cy.request({
@@ -27,7 +27,7 @@ When(/^i send POST request with captcha body$/,(table: any) => {
 	})
 })
 
-Then(/^i get feedback response code (\d+)$/, (status) => {
+Then(/^i get "Feedback" response code (\d+)$/, (status) => {
 	getCaptcha.then((response: any) => {
 		request(response.body)
 	}).then((response: any) => {
