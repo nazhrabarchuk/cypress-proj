@@ -52,7 +52,6 @@ class BasketPaymentComponent extends BaseComponent {
 			data.month,
 			data.year,
 		)
-		this.submitPaymentCardForm()
 		this.choosePaymentCardItem()
 	}
 }

@@ -1,7 +1,7 @@
 import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
-import homePage from '../../page-objects/pages/home.page'
-import loginPage from '../../page-objects/pages/login.page'
-import { LOGIN_DATA } from '../../fixtures/dataProvider'
+import homePage from '../../../page-objects/pages/home.page'
+import loginPage from '../../../page-objects/pages/login.page'
+import { LOGIN_DATA } from '../../../fixtures/dataProvider'
 
 
 When(/^the user navigates to login page$/,

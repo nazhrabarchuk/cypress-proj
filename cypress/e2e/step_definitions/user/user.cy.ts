@@ -1,6 +1,6 @@
 import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
-import userPage from '../../page-objects/pages/user.page'
-import homePage from '../../page-objects/pages/home.page'
+import userPage from '../../../page-objects/pages/user.page'
+import homePage from '../../../page-objects/pages/home.page'
 
 
 When(/^the user navigates to profile page$/,

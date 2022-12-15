@@ -1,5 +1,5 @@
 import { Given, Then, When } from '@badeball/cypress-cucumber-preprocessor'
-import { LOGIN_USER_POST_BODY_DATA, REGISTER_USER_POST_BODY_DATA } from '../../fixtures/helpers/client'
+import { LOGIN_USER_POST_BODY_DATA, REGISTER_USER_POST_BODY_DATA } from '../../../fixtures/helpers/client'
 
 let requestBody: any,
 	responseBody: any

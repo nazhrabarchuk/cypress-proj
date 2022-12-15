@@ -1,7 +1,7 @@
 {
   "nonGlobalStepDefinitions": false,
   "outputFolder": "cypress/cucumber-json",
-  "stepDefinitions": "cypress/e2e/step_definitions/*.{js,ts}",
+  "stepDefinitions": "cypress/e2e/step_definitions/**/*.{js,ts}",
   "json": {
     "enabled": true,
     "formatter": "jsonFormatter/cucumber-json-formatter",

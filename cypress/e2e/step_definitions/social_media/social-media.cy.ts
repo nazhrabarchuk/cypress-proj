@@ -1,7 +1,7 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
-import homePage from '../../page-objects/pages/home.page'
-import aboutUsPage from '../../page-objects/pages/aboutUs.page'
-import facebookPage from '../../page-objects/pages/facebook.page'
+import homePage from '../../../page-objects/pages/home.page'
+import aboutUsPage from '../../../page-objects/pages/aboutUs.page'
+import facebookPage from '../../../page-objects/pages/facebook.page'
 
 
 When(/^the user navigates to About Us page$/,

@@ -1,7 +1,7 @@
 import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
-import homePage from '../../page-objects/pages/home.page'
-import basketPage from '../../page-objects/pages/basket.page'
-import { ADDRESS_DATA, CARD_DATA } from '../../fixtures/dataProvider'
+import homePage from '../../../page-objects/pages/home.page'
+import basketPage from '../../../page-objects/pages/basket.page'
+import { ADDRESS_DATA, CARD_DATA } from '../../../fixtures/dataProvider'
 
 When(/^the user goes to the last page of product list$/,
 	() => {

@@ -1,6 +1,6 @@
 import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
-import homePage from '../../page-objects/pages/home.page'
-import basketPage from '../../page-objects/pages/basket.page'
+import homePage from '../../../page-objects/pages/home.page'
+import basketPage from '../../../page-objects/pages/basket.page'
 
 
 When(/^the user adds a product with the index "([^"]*)" to the cart$/,

@@ -2,7 +2,7 @@ import { BaseComponent } from '../base.component'
 
 const LOCATORS = {
 	ADD_ADDRESS_BUTTON: 'button[aria-label="Add a new address"]',
-	ITEM_ADDRESS_BUTTON: 'label.mat-radio-label',
+	ITEM_ADDRESS_BUTTON: 'mat-radio-button.mat-radio-button',
 	ADDRESS_COUNTRY_INPUT: 'input[data-placeholder="Please provide a country."]',
 	ADDRESS_NAME_INPUT: 'input[data-placeholder="Please provide a name."]',
 	ADDRESS_MOBILE_NUMBER_INPUT: 'input[data-placeholder="Please provide a mobile number."]',
@@ -60,7 +60,6 @@ class BasketAddressComponents extends BaseComponent {
 			data.address,
 			data.city,
 			data.state)
-		this.submitAddressForm()
 		this.chooseAddressItem()
 	}
 }
