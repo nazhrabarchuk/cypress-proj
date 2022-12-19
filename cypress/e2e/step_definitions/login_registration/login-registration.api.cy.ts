@@ -12,18 +12,20 @@ Given(/^a login request body$/, () => {
 	requestBody = LOGIN_USER_POST_BODY_DATA
 })
 
-When(/^i send POST request to (.*)$/, (path: any) => {
-	responseBody = cy.request({
-		url: path,
-		method: 'POST',
-		body: requestBody,
+When(/^i set POST request to (.*)$/,
+	(path: any) => {
+		responseBody = cy.request({
+			url: path,
+			method: 'POST',
+			body: requestBody,
+		})
 	})
-})
 
-Then(/^i get response code (\d+)$/, (status) => {
-	responseBody.then((response: any) => {
-		expect(response.status).to.equal(status)
-		expect(response).to.have.property('headers')
-		expect(response).to.have.property('duration')
+Then(/^i receive valid Response with status code (\d+)$/,
+	(status) => {
+		responseBody.then((response: any) => {
+			expect(response.status).to.equal(status)
+			expect(response).to.have.property('headers')
+			expect(response).to.have.property('duration')
+		})
 	})
-})

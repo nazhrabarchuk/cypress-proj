@@ -2,7 +2,7 @@ import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 let negativeRequest: any
 
-Given(/^a POST request with wrong captcha$/,
+Given(/^i set POST request with wrong captcha$/,
 	(table: any) => {
 		table.hashes().forEach((row: any) => {
 			negativeRequest = cy.request({
@@ -30,5 +30,4 @@ Then(/^should exist a response with error message and status$/,
 				expect(response.status).to.equal(+row.status)
 			})
 		})
-
 	})

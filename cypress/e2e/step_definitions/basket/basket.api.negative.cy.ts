@@ -2,7 +2,7 @@ import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 let deleteRequest: any
 
-Given(/^a DELETE method for undefined item with id (\d+) from the basket$/, (id) => {
+Given(/^i set DELETE method for undefined item with id (\d+) from the basket$/, (id) => {
 	deleteRequest = cy.request({
 		method: 'DELETE',
 		url: `api/BasketItems/${id}`,
@@ -13,7 +13,7 @@ Given(/^a DELETE method for undefined item with id (\d+) from the basket$/, (id)
 	})
 })
 
-Then(/^a response should contain a message ([^"]*) with status (\d+)$/, (message, status) => {
+Then(/^a response should contain a ([^"]*) message with status (\d+)$/, (message, status) => {
 	deleteRequest.then((response: any) => {
 		expect(response.body.message).to.equal(message)
 		expect(response.status).to.equal(status)

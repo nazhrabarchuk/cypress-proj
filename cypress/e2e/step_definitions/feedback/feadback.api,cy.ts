@@ -2,7 +2,7 @@ import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 let getCaptcha: any, request: any
 
-Given(/^a GET captcha body$/, () => {
+Given(/^i set GET request for captcha body$/, () => {
 	getCaptcha = cy.request('GET', 'rest/captcha/')
 		.then((response) => response)
 })
@@ -27,7 +27,7 @@ When(/^i send POST request with captcha body$/, (table: any) => {
 	})
 })
 
-Then(/^i get "Feedback" response code (\d+)$/, (status) => {
+Then(/^i receive valid "Feedback" Response with status code (\d+)$/, (status) => {
 	getCaptcha.then((response: any) => {
 		request(response.body)
 	}).then((response: any) => {
