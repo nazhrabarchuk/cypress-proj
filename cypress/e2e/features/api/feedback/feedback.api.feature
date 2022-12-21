@@ -6,5 +6,5 @@ Feature: Leave feedback via REST API
     When i send POST request with captcha body
       | url           | comment        | rating |
       | api/Feedbacks | !!!API test!!! | 3      |
-    Then i receive valid "Feedback" Response with status code 200
+    Then i receive valid "Feedback" Response with status code 201
 

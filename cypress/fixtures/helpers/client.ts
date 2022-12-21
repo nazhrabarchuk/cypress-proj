@@ -19,15 +19,15 @@ class Client {
 	/**
 	 * GET security question by request
 	 */
-	securityQuestionGet(): any {
-		return cy.request('GET', `${Cypress.config().baseUrl}api/SecurityQuestions/?id=1`).then(
+	securityQuestionGet(): void {
+		cy.request('GET', `${Cypress.config().baseUrl}api/SecurityQuestions/?id=1`).then(
 			(response) => {
-				return response.body
+				question = response.body
 			},
 		)
 	}
 
-	logIn(): any {
+	logIn(): void {
 		cy.request({
 			method: 'POST',
 			url: `${Cypress.config().baseUrl}rest/user/login/`,
@@ -43,8 +43,8 @@ class Client {
 	/**
 	 * Register user on the site
 	 */
-	register(body = REGISTER_USER_POST_BODY_DATA): any {
-		question = this.securityQuestionGet()
+	register(body = REGISTER_USER_POST_BODY_DATA): void {
+		this.securityQuestionGet()
 		cy.request('POST', `${Cypress.config().baseUrl}api/Users`, body)
 	}
 }

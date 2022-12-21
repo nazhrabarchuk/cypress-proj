@@ -1,6 +1,6 @@
 import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
 import homePage from '../../../page-objects/pages/home.page'
-import customerFeedbackPage from '../../../page-objects/pages/customerFeedback.page'
+import customerFeedbackPage from '../../../page-objects/pages/customer-feedback.page'
 
 When(/^the user navigates to Customer Feedback page$/,
 	() => {

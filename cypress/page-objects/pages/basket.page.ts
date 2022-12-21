@@ -37,10 +37,6 @@ class BasketPage extends BasePage<BasketPage> {
 		return new BasketSummaryComponent()
 	}
 
-	basketNotEmpty(): void {
-		cy.get(this.locators.BASKET_ITEMS).should('have.length', 1)
-	}
-
 	basketEmpty(): void {
 		cy.get(this.locators.BASKET_ITEMS).should('have.length', 0)
 	}
@@ -64,7 +60,7 @@ class BasketPage extends BasePage<BasketPage> {
 	selectMaxCountOfProductItemAndGetMsg() {
 		cy.isExist(this.modal.locators.MODAL_NOTIFICATION_MESSAGE).then((exists) => {
 			if (!exists) {
-				cy.wait(300)
+				cy.wait(400)
 				this.clickPlusCountItem()
 				this.selectMaxCountOfProductItemAndGetMsg()
 			}

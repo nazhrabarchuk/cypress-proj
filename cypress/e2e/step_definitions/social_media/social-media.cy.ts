@@ -1,6 +1,6 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import homePage from '../../../page-objects/pages/home.page'
-import aboutUsPage from '../../../page-objects/pages/aboutUs.page'
+import aboutUsPage from '../../../page-objects/pages/about-us.page'
 import facebookPage from '../../../page-objects/pages/facebook.page'
 
 

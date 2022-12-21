@@ -17,7 +17,6 @@ Cypress implementation with Cucumber and Page Object Model using TypeScript.
 
 - cypress
 - cypress-cucumber-preprocessor
-- typescript
 - esbuild
 - prettier
 
@@ -31,24 +30,28 @@ Cypress implementation with Cucumber and Page Object Model using TypeScript.
 
 ### How to install
 
-- Pull the branch
+- Clone the repository
 - Go to the project root folder (i.e. cypress-proj)
 - run the command ```npm install```
 
 ### How to run
 
-a. Headless mode
+a. Set default configuration
+
+- replace `baseUrl` property with your testing project url in file```cypress.config.js```
+
+b. Headless mode
 
 - run the command ```npm run cy:run```
 
-b. Running from the `Test Runner`
+c. Running from the `Test Runner`
 
 - run the command ```npm run cy:open``` and click on the required feature files
 
-c. Generate` html report`
+d. Generate` html report`
 
 - run the command ```npm run generate-report```
 
-d. Open report in browser
+e. Open report in browser
 
 - run the command ```npm run open-report```
